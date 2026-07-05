@@ -1,0 +1,36 @@
+body {
+    text-align: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+img {
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* These are for Ocarina piano spacing */
+#A\#3 {
+    margin-right: 50px;
+}
+
+#D\#3 {
+    margin-right: 50px;
+}
+
+#A\#4 {
+    margin-right: 50px;
+}
+
+#D\#4 {
+    margin-right: 50px;
+}

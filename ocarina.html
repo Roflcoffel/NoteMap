@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Ocarina</title>
+</head>
+<body>
+    <!-- use vue.global.prod.js to get rid of DEBUG info and stuff! -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+    <div id="app"> 
+        
+        <div class="d-flex flex-align-items-center">
+            <div class="container grid-lg">
+            <div class="columns">
+                <div class="column col-12">
+                    <ul class="tab tab-block">
+                        <li class="tab-item active">
+                            <a href="./ocarina.html">Ocarina</a>
+                        </li>
+                        <li class="tab-item">
+                            <a href="./harmonica.html">Harmonica</a>
+                        </li>
+                    </ul>
+                    <br />
+                    <br />
+                    <h1 class="text-primary">{{ title }}</h1>
+                    <img class="img-responsive" :src="url">
+                    <button :id="note.name" class="btn btn-primary btn" v-for="note in notes_black" v-on:click="setNote(note)">{{note.name}}</button>
+                    <br />
+                    <button class="btn btn-lg" v-for="note in notes_white" v-on:click="setNote(note)">{{note.name}}</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    title: "A3",
+                    url: "ocarina-assets/00_A3.webp",
+                    notes_white: [
+                        {name: "A3", img: "00_A3.webp"},
+                        {name: "B3", img: "01_B3.webp"},
+                        {name: "C4", img: "02_C4.webp"},
+                        {name: "D4", img: "03_D4.webp"},
+                        {name: "E4", img: "04_E4.webp"},
+                        {name: "F4", img: "05_F4.webp"},
+                        {name: "G4", img: "06_G4.webp"},
+                        {name: "A4", img: "07_A4.webp"},
+                        {name: "B4", img: "08_B4.webp"},
+                        {name: "C5", img: "09_C5.webp"},
+                        {name: "D5", img: "10_D5.webp"},
+                        {name: "E5", img: "11_E5.webp"},
+                        {name: "F5", img: "12_F5.webp"},
+                    ],
+
+                    notes_black: [
+                        {name: "A#3", img: "20_As3.webp"},
+                        {name: "C#4", img: "22_Cs4.webp"},
+                        {name: "D#4", img: "23_Ds4.webp"},
+                        {name: "F#4", img: "25_Fs4.webp"},
+                        {name: "G#4", img: "26_Gs4.webp"},
+                        {name: "A#4", img: "27_As4.webp"},
+                        {name: "C#5", img: "29_Cs5.webp"},
+                        {name: "D#5", img: "30_Ds5.webp"}  
+                    ]
+                }
+            },
+            methods: {
+                setNote(note) {
+                    this.title = note.name
+                    this.url = "ocarina-assets/" + note.img
+                }
+            }
+          
+        })
+
+    app.mount('#app')
+
+    </script>
+</body>
+</html>
